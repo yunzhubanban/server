@@ -1,30 +1,31 @@
 package boot
 
 import (
-	"encoding/json"
-	"github.com/gogf/gf/frame/g"
-	"github.com/yunzhubanban/server/app/config"
 	_ "github.com/yunzhubanban/server/packed"
+
+	"encoding/json"
 	"os"
+
+	"github.com/yunzhubanban/server/app/config"
+
+	"github.com/gogf/gf/frame/g"
 )
 
-// init 用于服务初始化
+// init 初始化参数设置
 func init() {
 	loadConfig()
 }
 
-// loadConfig 加载配置文件
+// loadConfig 加载配置信息
 func loadConfig() {
-	env, ok := os.LookupEnv("YZBBCONF")
 
+	env, ok := os.LookupEnv("YZBBCONF")
 	if !ok {
-		g.Log().Error("在解析环境配置时发生了异常: 无配置信息")
-		return
+		g.Log().Fatal("请于环境变量中加入配置信息")
 	}
 
 	err := json.Unmarshal([]byte(env), &config.Config)
-
 	if err != nil {
-		g.Log().Error("在解析环境配置时发生了异常", err)
+		g.Log().Fatal("解析配置信息失败：", err)
 	}
 }

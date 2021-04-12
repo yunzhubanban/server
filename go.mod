@@ -1,5 +1,8 @@
 module github.com/yunzhubanban/server
 
-require github.com/gogf/gf v1.15.6
-
 go 1.16
+
+require (
+	github.com/gogf/gf v1.15.6
+	github.com/gogf/swagger v1.2.0
+)

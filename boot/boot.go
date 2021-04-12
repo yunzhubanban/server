@@ -7,10 +7,14 @@ import (
 	"github.com/yunzhubanban/server/app/config"
 
 	"github.com/gogf/gf/frame/g"
+	"github.com/gogf/swagger"
 )
 
 // init 初始化参数设置
 func init() {
+	s := g.Server()
+	s.Plugin(new(swagger.Swagger))
+
 	loadConfig()
 }
 

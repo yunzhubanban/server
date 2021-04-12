@@ -11,6 +11,6 @@ type installApi struct {
 }
 
 // ServiceInstall 用于班级终端获取取得服务安装信息.
-func (a *installApi) ServiceInstall(r *ghttp.Request) {
+func (a *installApi) Status(r *ghttp.Request) {
 	_ = r.Response.WriteJson(service.Install.GetServiceInstallInfo())
 }

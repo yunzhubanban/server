@@ -12,9 +12,7 @@ func init() {
 	s.Group("/", func(group *ghttp.RouterGroup) {
 		group.ALL("/hello", api.Hello)
 		group.Group("/endpoint/", func(group *ghttp.RouterGroup) {
-			group.Group("/service", func(group *ghttp.RouterGroup) {
-				group.GET("/status", api.Install)
-			})
+			group.GET("/service", api.Install)
 		})
 	})
 }

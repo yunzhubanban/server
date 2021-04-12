@@ -11,7 +11,7 @@ func init() {
 	s := g.Server()
 	s.Group("/apis", func(group *ghttp.RouterGroup) {
 		group.Group("/endpoint/", func(group *ghttp.RouterGroup) {
-			group.GET("/service", api.Install)
+			group.GET("/service", api.Service)
 		})
 	})
 }

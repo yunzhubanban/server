@@ -17,8 +17,8 @@ func init() {
 	authMiddleware, err := jwt.New(&jwt.GfJWTMiddleware{
 		Realm:         "YZBB",
 		Key:           g.Cfg().GetBytes("yunzhubanban.jwt.Key"),
-		Timeout:       time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Key"),
-		MaxRefresh:    time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Key"),
+		Timeout:       time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Timeout"), // TODO 可能不需要配置文件加载
+		MaxRefresh:    time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Timeout"),
 		IdentityKey:   "id",
 		TokenLookup:   "header: Authorization",
 		TokenHeadName: "Bearer",

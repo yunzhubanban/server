@@ -1,10 +1,10 @@
 package api
 
 import (
+	"time"
+
 	jwt "github.com/gogf/gf-jwt"
 	"github.com/gogf/gf/frame/g"
-	"github.com/yunzhubanban/server/app/config"
-	"time"
 )
 
 var (
@@ -16,9 +16,9 @@ var (
 func init() {
 	authMiddleware, err := jwt.New(&jwt.GfJWTMiddleware{
 		Realm:         "YZBB",
-		Key:           []byte(config.Config.JWTKey),
-		Timeout:       time.Minute * config.Config.JWTTimeout,
-		MaxRefresh:    time.Minute * config.Config.JWTTimeout,
+		Key:           g.Cfg().GetBytes("yunzhubanban.jwt.Key"),
+		Timeout:       time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Key"),
+		MaxRefresh:    time.Minute * g.Cfg().GetDuration("yunzhubanban.jwt.Key"),
 		IdentityKey:   "id",
 		TokenLookup:   "header: Authorization",
 		TokenHeadName: "Bearer",

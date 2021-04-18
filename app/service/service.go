@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/yunzhubanban/server/app/model"
 	"time"
 
-	"github.com/yunzhubanban/server/app/config"
+	"github.com/yunzhubanban/server/app/model"
+	"github.com/gogf/gf/frame/g"
 )
 
 // Service 服务信息
@@ -17,7 +17,7 @@ type serviceService struct{}
 func (a *serviceService) Status() *model.StatusResp {
 	return &model.StatusResp{
 		Time: time.Now().Unix(),
-		Name: config.Config.Name,
+		Name: g.Cfg().GetString("yunzhubanban.Name"),
 	}
 }
 

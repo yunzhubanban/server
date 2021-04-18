@@ -4,7 +4,9 @@ LABEL maintainer="云助班班科技创新委员会 <yunzhubanban@qianjunakasumi
 
 WORKDIR /
 
-ADD bin/linux_amd64/main /main
-RUN chmod +x /main
+COPY bin/linux_amd64/main main
+RUN chmod +x main
 
-CMD ./main
+VOLUME [ "/data", "/config" ]
+
+CMD main

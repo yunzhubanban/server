@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/yunzhubanban/server/app/api"
 	"github.com/yunzhubanban/server/app/api/endpoint/service"
 	"time"
 
@@ -33,5 +34,16 @@ type DeviceResp struct {
 }
 
 func (a *serviceService) Devices(req *service.DeviceBindReq) *DeviceResp {
-	return nil
+	// Create the token
+	token, _, err := api.Auth.TokenGenerator(nil)
+
+	if err != nil {
+		return nil
+	}
+
+	return &DeviceResp{
+		// FIXME: 从数据库中获取是否已有设置
+		HasSetting: false,
+		Token:      token,
+	}
 }

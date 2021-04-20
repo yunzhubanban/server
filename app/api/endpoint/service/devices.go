@@ -1,19 +1,15 @@
 package service
 
 import (
-	"github.com/yunzhubanban/server/app/service"
+	"github.com/yunzhubanban/server/app/model/endpoint/service"
+	"github.com/yunzhubanban/server/app/service/endpoint/service"
 
 	"github.com/gogf/gf/net/ghttp"
 )
 
-type DeviceBindReq struct {
-	Point    string `json:"point"`    // Point 班级号
-	Password string `json:"password"` // Password 密码散列值 (SHA512)
-}
-
 // Devices 用于班级终端班级号绑定
 func Devices(r *ghttp.Request) {
-	var data *DeviceBindReq
+	var data *model.DeviceBindReq
 
 	if err := r.Parse(data); err != nil {
 		// TODO 使用通用错误响应体

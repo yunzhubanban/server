@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/yunzhubanban/server/app/service"
+	"github.com/yunzhubanban/server/app/service/endpoint/service"
 
 	"github.com/gogf/gf/net/ghttp"
 )

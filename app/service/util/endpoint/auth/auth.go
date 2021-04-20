@@ -1,4 +1,4 @@
-package service
+package auth
 
 import (
 	"time"
@@ -7,10 +7,7 @@ import (
 	"github.com/gogf/gf/frame/g"
 )
 
-var (
-	// Auth JWT 中间件
-	Auth *jwt.GfJWTMiddleware
-)
+var Auth *jwt.GfJWTMiddleware // Auth JWT 中间件
 
 // 初始化 JWT
 func init() {
